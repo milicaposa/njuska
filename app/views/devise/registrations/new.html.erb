@@ -1,0 +1,52 @@
+  <div class="col-md-8 mx-auto">
+    <div class="main-section">
+    <h1>Napravite novi nalog</h1>
+
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= devise_error_messages! %>
+
+      <div class="field form-group">
+        <%= f.label :name, "Ime " %>
+        <%= f.text_field :name, autofocus: true, autocomplete: "name", class: "form-control" %>
+      </div>
+
+      <div class="field form-group">
+        <%= f.label :surname, "Prezime" %>
+        <%= f.text_field :surname, autocomplete: "surname", class: "form-control" %>
+      </div>
+
+      <div class="field form-group">
+        <%= f.label :city, "Grad" %>
+        <%= f.text_field :city, autocomplete: "city", class: "form-control" %>
+      </div>
+
+      <div class="field form-group">
+        <%= f.label :phone_number, "Broj telefona" %>
+        <%= f.text_field :phone_number, autocomplete: "phone_number", class: "form-control" %>
+      </div>
+
+      <div class="field form-group">
+        <%= f.label :email %>
+        <%= f.email_field :email, autocomplete: "email", class: "form-control" %>
+      </div>
+
+      <div class="field form-group">
+        <%= f.label :password, "Sifra" %>
+        <%= f.password_field :password, autocomplete: "off", class: "form-control" %>
+        <% if @minimum_password_length %>
+            <em class="small">(<%= @minimum_password_length %> karaktera minimum)</em>
+        <% end %>
+      </div>
+
+      <div class="field form-group">
+        <%= f.label :password_confirmation, "Potvrdite sifru" %>
+        <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control" %>
+      </div>
+
+      <div class="actions form-group">
+        <%= f.submit "Napravi nalog", class: "btn btn-primary" %>
+        <%= link_to "Uloguj se", new_session_path(resource_name), class: "btn btn-outline-primary" %>
+      </div>
+    <% end %>
+  </div>
+</div>

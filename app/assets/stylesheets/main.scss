@@ -1,0 +1,318 @@
+html {
+  font-size: 62.5%; // ili 10px
+}
+
+body {
+  font-size: 1.6rem;
+  background-color: $color-white-dk;
+  color: $color-black;
+}
+
+img {
+  max-width: 100%;
+}
+
+.container {
+  max-width: 96rem;
+  margin: 0 auto;
+}
+
+a, a:hover {
+  color: $color-info;
+}
+
+// Errors styling
+.field_with_errors {
+  label {
+    color: $color-error;
+  }
+
+  input,select,textarea {
+    border-color: $color-error;
+  }
+}
+
+#error_explanation {
+  font-size: 1.4rem;
+
+  h2 {
+    font-size: 1.8rem;
+  }
+}
+
+
+// Forms
+.form-control {
+  padding: .5rem 1rem;
+  font-size: 1.5rem;
+
+  &:focus {
+    border-color: $color-lt-green;
+    box-shadow: none;
+  }
+}
+
+select.form-control:not([size]):not([multiple]) {
+  height: calc(3.25rem + 2px);
+}
+
+// Footer
+footer {
+  padding: 1rem 0;
+  text-align: center;
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+// Header
+header {
+  background: $color-white;
+  padding: 0 4rem;
+  margin-bottom: 2rem;
+
+  .dropdown {
+
+      .nav-item {
+          margin-left: 0;
+      }
+
+      .dropdown-item {
+        font-size: 1.4rem;
+      }
+  }
+
+  a, a:hover {
+    color: $color-green;
+  }
+}
+
+.logo {
+  height: 6rem;
+}
+
+// Nav
+nav {
+	padding-top: 0.5rem;
+    .nav-item {
+        display: inline-block;
+        margin-left: 1.5rem;
+        font-size: 1.6rem;
+
+        &:hover, &.active {
+          border-radius: .5rem;
+          background-color: $color-lt-green;
+          color: $color-white;
+          transition-duration: .5s;
+        }
+    }
+
+  .dropdown-menu {
+    .nav-link {
+      text-align: left;
+      font-size: 1.4rem;
+
+      &:hover {
+        background-color: $color-lt-green;
+        color: $color-white;
+        transition-duration: .5s;
+      }
+    }
+  }
+}
+
+// Typo
+h1 {
+  font-size: 2.8rem;
+  margin: 0 0 2rem 0;
+}
+
+em {
+  font-size: 1.3rem;
+  color: $color-gray;
+}
+
+// Buttons
+.btn {
+	padding: .6rem;
+	font-size: 1.2rem;
+  margin: .3rem 0 .5rem 0;
+
+  &.btn-lg {
+    font-size: 1.5rem;
+  }
+}
+
+.dropdown-item {
+  font-size: 1.2rem;
+}
+
+.btn-primary:not([disabled]):not(.disabled):active {
+  background-color: $color-lt-green;
+  border-color: $color-lt-green;
+}
+
+.btn-primary {
+  background-color: $color-lt-green;
+  border-color: $color-lt-green;
+
+  &:hover {
+      background-color: $color-green;
+  }
+  &:focus {
+    box-shadow: 0;
+  }
+}
+
+.btn-danger {
+  background-color: $color-error;
+  border-color: $color-error;
+
+  &:hover {
+    background-color: #b15758;
+    border-color: #b15758;
+  }
+  &:focus {
+    box-shadow: 0;
+  }
+}
+
+.btn-outline-primary {
+  border-color: $color-green;
+  color: $color-green;
+
+  &:hover {
+    background-color: $color-green;
+    border-color: $color-green;
+  }
+  &:focus {
+    box-shadow: 0;
+  }
+}
+
+// Sections
+.main-section {
+  padding: 4rem;
+  background-color: $color-white;
+}
+
+
+// Card
+.card-holder {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: center;
+
+  .card {
+    margin: .5rem;
+    background-color: transparent;
+    border: none;
+  }
+}
+
+.flip-container {
+  perspective: 900px;
+  &:hover .flipper, &.hover .flipper {
+    transform: rotateY(180deg);
+  }
+  width: 300px;
+  height: 300px;
+}
+
+/* flip the pane when hovered */
+
+.front, .back {
+  width: 300px;
+  height: 300px;
+}
+
+/* flip speed goes here */
+
+.flipper {
+  transition: .8s;
+  transform-style: preserve-3d;
+  position: relative;
+}
+
+/* hide back of pane during swap */
+
+.front, .back {
+  backface-visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* front pane, placed above back */
+
+.front {
+  z-index: 2;
+  /* for firefox 31 */
+  transform: rotateY(0deg);
+  background-color: $color-white;
+  position: relative;
+
+  img {
+    width: 300px;
+    height: 300px;
+  }
+
+  .animal-name {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 100;
+    background-color: rgba($color-black, .5);
+    color: $color-white;
+    padding: 1rem;
+    text-align: center;
+    width: 100%;
+  }
+}
+
+/* back, initially hidden pane */
+.poklon {
+  .back {
+    background-color: $color-info;
+  }
+}
+
+.nestala {
+  .back {
+    background-color: $color-danger;
+  }
+}
+
+.back {
+  transform: rotateY(180deg);
+  background-color: $color-lt-green;
+  color: $color-white;
+  padding: 2rem;
+  text-align: center;
+}
+
+
+// Filter
+.filter-animals {
+  background: $color-white;
+  padding: 1rem 2rem;
+
+  a {
+    min-width: 100px;
+  }
+}
+
+// model
+.inside-modal {
+  padding: 2rem;
+
+  p {
+    margin-bottom: .3rem;
+  }
+}
+
+// news
+.single-news {
+  margin-bottom: 2rem;
+}

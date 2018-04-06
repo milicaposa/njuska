@@ -1,0 +1,13 @@
+<section class="main-section">
+  <h1>Twitter vesti o životinjama</h1>
+
+  <div class="row">
+    <% @tweets.each do |tweet| %>
+        <div class="col-md-6">
+          <div class="single-news">
+            <%= twitter_parser_helper tweet %>
+          </div>
+        </div>
+    <% end %>
+  </div>
+</section>

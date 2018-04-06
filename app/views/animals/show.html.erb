@@ -1,0 +1,44 @@
+<div class="col-md-12">
+  <section class="main-section">
+    <p class="text-center">
+      <%= image_tag(@animal.main_image) %>
+    </p>
+    <br>
+
+    <p>
+      <strong>Ime:</strong>
+      <%= @animal.name %>
+    </p>
+
+    <p>
+      <strong>Godine:</strong>
+      <%= @animal.years %>
+    </p>
+
+    <p>
+      <strong>Vrsta:</strong>
+      <%= @animal.species.capitalize %>
+    </p>
+
+    <p>
+      <strong>Status:</strong>
+      <%= @animal.status.capitalize %>
+    </p>
+
+    <p>
+      <strong>Rasa:</strong>
+      <%= @animal.breed %>
+    </p>
+
+    <p>
+      <strong>Opis:</strong>
+      <%= @animal.description %>
+    </p>
+
+
+
+    <%= link_to 'Izmeni', edit_animal_path(@animal), class: "btn btn-primary" %>
+    <%= link_to 'Nazad', animals_path, class: "btn btn-outline-primary" %>
+  </section>
+
+</div>

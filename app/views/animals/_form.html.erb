@@ -1,0 +1,66 @@
+<div class="col-md-12">
+  <div class="main-section">
+    <%= form_with(model: animal, local: true) do |form| %>
+    <% if animal.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(animal.errors.count, "error") %>:</h2>
+
+      <ul>
+        <% animal.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+    <% end %>
+
+    <h1><%= title %></h1>
+
+    <div class="field form-group">
+      <%= form.label :name, "Ime" %>
+      <%= form.text_field :name, id: :animal_name, class: "form-control" %>
+    </div>
+
+    <div class="field form-group">
+      <%= form.label :years, "Godine" %>
+      <%= form.text_field :years, id: :animal_years, class: "form-control" %>
+    </div>
+
+    <div class="field form-group">
+      <%= form.label :species, "Vrsta" %>
+      <%= form.select :species, options_for_select(@species.map { |s| [s[0].humanize, s[0]] }, selected: @animal.species), {} , class: "form-control" %>
+    </div>
+
+    <div class="field form-group">
+      <%= form.label :status, "Status" %>
+      <%= form.select :status, options_for_select(@statuses.map { |s| [s[0].humanize, s[0]] }, selected: @animal.status), {} , class: "form-control" %>
+    </div>
+
+    <div class="field form-group">
+      <%= form.label :breed, "Rasa" %>
+      <%= form.text_field :breed, id: :animal_breed, class: "form-control" %>
+    </div>
+
+
+    <div class="field form-group">
+      <%= form.label :breed, "Glavna slika" %>
+      <%= form.file_field :main_image, id: :main_image, class: "form-control" %>
+    </div>
+
+        <div class="field form-group">
+          <%= form.label :breed, "Pomoćna slika" %>
+          <%= form.file_field :thumb_image, id: :thumb_image, class: "form-control" %>
+        </div>
+
+    <div class="field form-group">
+      <%= form.label :description, "Opis" %>
+      <%= form.text_area :description, id: :animal_description, class: "form-control", rows: 5 %>
+    </div>
+
+    <div class="actions">
+      <%= form.submit btn_title, class: "btn btn-primary" %>
+      <%= link_to "Nazad", animals_path, class: "btn btn-outline-primary" %>
+    </div>
+
+    <% end %>
+  </div>
+</div>

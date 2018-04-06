@@ -1,0 +1,21 @@
+<div class="modal fade" tabindex="-1" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="inside-modal">
+        <p class="text-center"><%= image_tag(@animal.main_image) %></p>
+        <br>
+        <p><strong>Ime</strong>: <%= @animal.name %></p>
+        <p><strong>Godine</strong>: <%= @animal.years %></p>
+        <p><strong>Vrsta</strong>: <%= @animal.species %></p>
+        <p><strong>Rasa</strong>: <%= @animal.breed %></p>
+        <p><strong>Opis</strong>: <%= @animal.description %></p>
+        <br>
+        <p><strong>Vlasnik</strong>:</p>
+        <p><%= @animal.user.name %> <%= @animal.user.surname %></p>
+        <p><%= @animal.user.email %></p>
+        <p><%= @animal.user.phone_number %></p>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+

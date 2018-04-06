@@ -1,0 +1,44 @@
+<section class="main-section">
+  <h1>Moje Životinje</h1>
+
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Ime</th>
+        <th>Godine</th>
+        <th>Vrsta</th>
+        <th>Rasa</th>
+        <th>Opis</th>
+        <th>Status</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% if @animals.empty? %>
+        <tr>
+          <td colspan="8">Nemate životinje. Dodajte novu</td>
+        </tr>
+      <% else %>
+        <% @animals.each do |animal| %>
+          <tr>
+            <td><%= animal.name %></td>
+            <td><%= animal.years %></td>
+            <td><%= animal.species.humanize %></td>
+            <td><%= animal.breed %></td>
+            <td><%= truncate(animal.description) %></td>
+            <td><%= animal.status.humanize %></td>
+            <td><%= link_to 'Prikaži', animal %></td>
+            <td><%= link_to 'Izmeni', edit_animal_path(animal) %></td>
+            <td><%= link_to 'Obriši', animal, method: :delete, data: { confirm: 'Da li ste sigurni?' } %></td>
+          </tr>
+        <% end %>
+    <% end %>
+    </tbody>
+  </table>
+
+  <br>
+
+  <%= link_to 'Dodaj novu životinju', new_animal_path, class: "btn btn-primary" %>
+
+</section>

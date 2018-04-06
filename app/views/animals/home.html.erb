@@ -1,0 +1,55 @@
+<div class="alert alert-light">
+  <div class="btn-group">
+    <button class="btn btn-outline-info btn-lg dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      Poklon
+    </button>
+    <div class="dropdown-menu">
+      <%= link_to "Sve", all_adoptions_path, class: "dropdown-item" %>
+      <%= link_to "Psi", dogs_adoptions_path, class: "dropdown-item" %>
+      <%= link_to "Macke", cats_adoptions_path, class: "dropdown-item" %>
+      <%= link_to "Ostalo", other_adoptions_path, class: "dropdown-item" %>
+    </div>
+  </div>
+
+  <div class="btn-group">
+    <button class="btn btn-outline-danger btn-lg dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      Nestale
+    </button>
+    <div class="dropdown-menu">
+      <%= link_to "Sve", all_missings_path, class: "dropdown-item" %>
+      <%= link_to "Psi", dogs_missings_path, class: "dropdown-item" %>
+      <%= link_to "Macke", cats_missings_path, class: "dropdown-item" %>
+      <%= link_to "Ostalo", other_missings_path, class: "dropdown-item" %>
+    </div>
+  </div>
+</div>
+
+<div class="card-holder">
+  <%= puts @animals.empty? %>
+
+  <% if @animals.empty? %>
+    <div class="alert alert-warning">
+      Nema životinja
+    </div>
+  <% else %>
+    <% @animals.each do |animal| %>
+      <%= link_to show_single_animal_path(animal), data: { behavior: 'modal' }, class: "#{animal_class(animal)} flip-container card", ontouchstart:"this.classList.toggle('hover');" do %>
+        <div class="flipper">
+          <div class="front">
+            <div class="desc">
+              <%= image_tag(animal.thumb_image) %>
+              <span class="animal-name"><%= animal.name %></span>
+            </div>
+          </div>
+          <div class="back">
+            <div class="desc">
+              <p>Godine: <%= animal.years %></p>
+              <p>Rasa: <%= animal.breed %></p>
+              <p>Vlasnik: <%= animal.user.name %></p>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  <% end %>
+</div>
